@@ -1,0 +1,26 @@
+name: PinEconomy
+version: '1.0.0'
+main: dev.pin.PinEconomy
+api-version: '1.21'
+description: Hệ thống kinh tế Pin ⚡ — The Last Broadcast
+author: Server
+depend: [Vault]
+softdepend: [PlaceholderAPI]
+
+commands:
+  pin:
+    description: Lệnh kinh tế Pin
+    aliases: [balance, bal, eco]
+    usage: /pin <balance|pay|top|add|remove|set|reset>
+    permission: pin.use
+
+permissions:
+  pin.use:
+    description: Dùng lệnh /pin cơ bản
+    default: true
+  pin.pay:
+    description: Chuyển Pin cho người khác
+    default: true
+  pin.admin:
+    description: Quyền admin kinh tế
+    default: op
