@@ -1,0 +1,44 @@
+economy:
+  currency-name: "Pin"
+  currency-name-plural: "Pin"
+  currency-symbol: "⚡"
+  starting-balance: 100.0
+  decimal-places: 0
+
+transfer:
+  tax-percent: 5
+  min-amount: 1.0
+  max-amount: 50000.0
+
+scoreboard:
+  enabled: true
+  title: "§4§l★ THE LAST BROADCAST"
+  update-interval-ticks: 40
+  lines:
+    - "§8§m─────────────────"
+    - "§fSố dư:"
+    - "§a⚡ {balance} Pin"
+    - "§8§m─────────────────"
+    - "§fChapter: §e{chapter}"
+    - "§fVùng: {zone}"
+    - "§8§m─────────────────"
+    - "§fTruy nã: {wanted}"
+    - "§8§m─────────────────"
+
+tab:
+  enabled: true
+  header: "§4§l★ THE LAST BROADCAST §4§l★\n§7Server SMP Kinh dị tâm lý"
+  footer: "§f⚡ Số dư: §a{balance} Pin §8| §fVùng: {zone}"
+  update-interval-ticks: 60
+
+messages:
+  prefix: "§8[§a⚡ PIN§8] §r"
+  balance-self: "§fSố dư của bạn: §a⚡ {balance} Pin"
+  balance-other: "§fSố dư của §e{player}§f: §a⚡ {balance} Pin"
+  pay-success: "§fĐã chuyển §a⚡ {amount} Pin §fcho §e{target}§f. (Phí: §c{tax} Pin§f)"
+  pay-received: "§e{sender} §fđã chuyển cho bạn §a⚡ {amount} Pin"
+  pay-insufficient: "§cKhông đủ Pin. Cần §f{amount} Pin §c(gồm {tax} Pin phí)."
+  admin-add: "§aĐã thêm §f{amount} Pin §avào tài khoản §f{player}"
+  admin-remove: "§aĐã trừ §f{amount} Pin §atừ tài khoản §f{player}"
+  admin-set: "§aĐã set tài khoản §f{player} §athành §f{amount} Pin"
+  admin-reset: "§aĐã reset tài khoản §f{player} §avề §f{start} Pin"
