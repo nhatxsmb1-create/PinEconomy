@@ -20,7 +20,9 @@ scoreboard:
     - "§a⚡ {balance} Pin"
     - "§8§m─────────────────"
     - "§fChapter: §e{chapter}"
-    - "§fVùng: {zone}"
+    - "§fVùng: %ambienthorror_zone_display%"
+    - "§8§m─────────────────"
+    - "§fTỉnh táo: %ambienthorror_sanity_bar%"
     - "§8§m─────────────────"
     - "§fTruy nã: {wanted}"
     - "§8§m─────────────────"
@@ -28,7 +30,7 @@ scoreboard:
 tab:
   enabled: true
   header: "§4§l★ THE LAST BROADCAST §4§l★\n§7Server SMP Kinh dị tâm lý"
-  footer: "§f⚡ Số dư: §a{balance} Pin §8| §fVùng: {zone}"
+  footer: "§f⚡ {balance} Pin §8| %ambienthorror_zone_display% §8| %ambienthorror_sanity_name%"
   update-interval-ticks: 60
 
 messages:
