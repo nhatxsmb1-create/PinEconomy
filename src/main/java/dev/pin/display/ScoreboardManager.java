@@ -1,6 +1,7 @@
 package dev.pin.display;
 
 import dev.pin.PinEconomy;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -14,9 +15,11 @@ public class ScoreboardManager {
     private final PinEconomy plugin;
     private BukkitTask task;
     private final Map<UUID, Scoreboard> boards = new HashMap<>();
+    private final boolean hasPAPI;
 
     public ScoreboardManager(PinEconomy plugin) {
         this.plugin = plugin;
+        this.hasPAPI = Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null;
         start();
     }
 
@@ -38,7 +41,8 @@ public class ScoreboardManager {
 
         obj = board.registerNewObjective("pin", Criteria.DUMMY,
                 ChatColor.translateAlternateColorCodes('&',
-                        plugin.getConfig().getString("scoreboard.title", "§4§l★ THE LAST BROADCAST")));
+                        plugin.getConfig().getString("scoreboard.title",
+                                "§4§l★ THE LAST BROADCAST")));
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         List<String> lines = plugin.getConfig().getStringList("scoreboard.lines");
@@ -47,10 +51,17 @@ public class ScoreboardManager {
 
         List<String> processed = new ArrayList<>();
         for (String line : lines) {
+            // Replace custom placeholders
             line = line.replace("{balance}", balStr)
                        .replace("{chapter}", getChapter())
                        .replace("{zone}", getZone(player))
                        .replace("{wanted}", getWantedStatus(player));
+
+            // Parse PlaceholderAPI placeholders
+            if (hasPAPI) {
+                line = PlaceholderAPI.setPlaceholders(player, line);
+            }
+
             processed.add(ChatColor.translateAlternateColorCodes('&', line));
         }
 
